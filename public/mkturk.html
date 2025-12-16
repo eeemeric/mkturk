@@ -60,7 +60,7 @@
 <script>
 
 //================== AUTHENTICATE ==================//
-var DBX_REDIRECT_URI = DBX_REDIRECT_URI_ROOT + "mkturk.html"
+var DBX_REDIRECT_URI = DBX_REDIRECT_URI_ROOT + "/public/mkturk.html"
 if (isAuthenticated()){
 	//Create an instance of Dropbox with the access token
 	var dbx = new Dropbox.Dropbox({accessToken: getAccessTokenFromUrl()})
