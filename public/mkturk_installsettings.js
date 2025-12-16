@@ -5,7 +5,7 @@
 // PATH & APP KEY from Dropbox Developer Console for
 // MKTURK.HTML & LIVEPLOT.HTML
 var DBX_CLIENT_ID = "jf65s59hzl6nwcw"
-var DBX_REDIRECT_URI_ROOT = "https://eeemeric.github.io/mkturk/tree/Stuphorn/public"
+var DBX_REDIRECT_URI_ROOT = "https://eeemeric.github.io/mkturk/"
 
 // ------ Subject settings ------ 
 var subjectlist = ["ExampleSubject"];
