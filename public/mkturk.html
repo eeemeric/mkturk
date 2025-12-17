@@ -8,8 +8,7 @@
 <link rel="icon" href="mkturklogo48.png">
 
 <script src="mkturk_installsettings.js"></script>
-<!-- <script src="https://unpkg.com/dropbox@10.34.0/dist/Dropbox-sdk.min.js"></script> -->
-<script src="https://unpkg.com/dropbox@?.?.??/dist/Dropbox-sdk.min.js"></script>
+<script src="https://unpkg.com/dropbox@10.34.0/dist/Dropbox-sdk.min.js"></script>
 	
 </head>
 
@@ -68,7 +67,9 @@ if (isAuthenticated()){
 }
 else {
 	var dbx = new Dropbox.Dropbox({clientId: DBX_CLIENT_ID});
-	var dbx_authUrl = await dbx.auth.getAuthenticationUrl(DBX_REDIRECT_URI);
+	var dbx.auth.getAuthenticationUrl(DBX_REDIRECT_URI).then(function(authUrl) {
+    window.location.href = authUrl;
+});
 	window.location.href = await dbx_authUrl //send to Dropbox sign-in screen
 }
 //=============== (end) AUTHENTICATE ===============//
