@@ -69,7 +69,7 @@ if (isAuthenticated()){
 else {
 	var dbx = new Dropbox.Dropbox({clientId: DBX_CLIENT_ID});
 	var dbx_authUrl = dbx.auth.getAuthenticationUrl(DBX_REDIRECT_URI);
-	window.location.href = dbx_authUrl //send to Dropbox sign-in screen
+	window.location.href = await dbx_authUrl //send to Dropbox sign-in screen
 }
 //=============== (end) AUTHENTICATE ===============//
 
