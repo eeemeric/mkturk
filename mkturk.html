@@ -8,7 +8,7 @@
 <link rel="icon" href="mkturklogo48.png">
 
 <script src="./mkturk_installsettings.js?v=123"></script>
-<script src="https://unpkg.com/dropbox@10.34.0/dist/Dropbox-sdk.min.js"></script>
+<script src="https://unpkg.com/dropbox@4.0.30/dist/Dropbox-sdk.min.js"></script>
 	
 </head>
 
@@ -67,9 +67,8 @@ if (isAuthenticated()){
 }
 else {
 	var dbx = new Dropbox.Dropbox({clientId: DBX_CLIENT_ID});
-	dbx.auth.getAuthenticationUrl(DBX_REDIRECT_URI).then(function(authUrl) {
-		window.location.href = authUrl;
-	});  // ← Added missing closing brace and semicolon
+	var dbx_authUrl = dbx.getAuthenticationUrl(DBX_REDIRECT_URI);
+	window.location.href = dbx_authUrl;
 }
 //=============== (end) AUTHENTICATE ===============//
 
