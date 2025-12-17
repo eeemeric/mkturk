@@ -69,8 +69,7 @@ else {
 	var dbx = new Dropbox.Dropbox({clientId: DBX_CLIENT_ID});
 	dbx.auth.getAuthenticationUrl(DBX_REDIRECT_URI).then(function(authUrl) {
     window.location.href = authUrl;
-});
-});
+})
 }
 //=============== (end) AUTHENTICATE ===============//
 
