@@ -4,7 +4,7 @@
 // ------ Dropbox WebApp settings ------ 
 // PATH & APP KEY from Dropbox Developer Console for
 // MKTURK.HTML & LIVEPLOT.HTML
-var DBX_CLIENT_ID = "jf65s59hzl6nwcw"
+var DBX_CLIENT_ID = "cybuxa7akag6f56"
 var DBX_REDIRECT_URI_ROOT = "https://eeemeric.github.io/mkturk/"
 
 // ------ Subject settings ------ 
