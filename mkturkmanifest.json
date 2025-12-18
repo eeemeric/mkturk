@@ -3,7 +3,7 @@
   "short_name": "MkTurk",
   "description": "Behavioral experiment platform for research",
   "start_url": "./mkturk.html",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "landscape",
   "background_color": "#ffffff",
   "theme_color": "#2196F3",
