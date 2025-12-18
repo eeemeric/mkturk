@@ -124,7 +124,12 @@ async function requestBLEDevice(){
     console.log('Requesting bluetooth device list')  // Replace writeTextonBlankCanvas with this
     
     // Temporary (shows all devices):
-    let options = {acceptAllDevices: true, optionalServices: [ble.customserviceUUID]}
+    // let options = {acceptAllDevices: true, optionalServices: [ble.customserviceUUID]}
+    // Temporary test - connect to any service
+    let options = {
+        filters: [{namePrefix: "BLENano_"}], 
+        optionalServices: ['generic_access', 'generic_attribute']  // Standard services
+    }
     console.log('About to call requestDevice with options:', options);
     try{
         console.log('Calling navigator.bluetooth.requestDevice...');
