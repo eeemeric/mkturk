@@ -54,9 +54,9 @@ async function loadImageBagPathsParallel(imagebagroot_s){
 		console.log(`funcreturn[${i}]:`, funcreturn[i]);
 		console.log(`funcreturn[${i}][0]:`, funcreturn[i][0]);
 		
-		if (funcreturn[i] && funcreturn[i][0] && Array.isArray(funcreturn[i][0])) {
-		    bagitems_paths.push(...funcreturn[i][0]);
-		    for (var j=0; j<= funcreturn[i][0].length-1; j++){
+		if (funcreturn[i] && Array.isArray(funcreturn[i])) {
+		    bagitems_paths.push(...funcreturn[i]);  // Use funcreturn[i] directly
+		    for (var j=0; j<= funcreturn[i].length-1; j++){
 		        bagitems_labels.push(i);
 		    }
 		} else {
