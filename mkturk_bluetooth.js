@@ -114,6 +114,11 @@ async function requestBLEDevice(){
         ble.device.addEventListener('gattserverdisconnected',onDisconnectedBLE)
     }
     catch(error){
+      // Add detailed error logging
+      console.log('Detailed Bluetooth error:', error);
+      console.log('Error name:', error.name);
+      console.log('Error message:', error.message);
+      
       if (ble.connected == false){
         var textstr = 'Still waiting for user to select device'
         console.log(textstr)
