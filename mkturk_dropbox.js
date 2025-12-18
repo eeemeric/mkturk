@@ -54,14 +54,20 @@ async function loadImageBagPathsParallel(imagebagroot_s){
 	    console.log(`funcreturn[${i}]:`, funcreturn[i]);
 	    console.log(`funcreturn[${i}][0]:`, funcreturn[i][0]);
 	    
-	    // This should be the updated version:
+	    // Add detailed debugging
+	    console.log(`Type of funcreturn[${i}]:`, typeof funcreturn[i]);
+	    console.log(`Is array:`, Array.isArray(funcreturn[i]));
+	    console.log(`Exists:`, !!funcreturn[i]);
+	    
 	    if (funcreturn[i] && Array.isArray(funcreturn[i])) {
-	        bagitems_paths.push(...funcreturn[i]);  // Use funcreturn[i] directly
+	        console.log(`Processing valid data for index ${i}`);
+	        bagitems_paths.push(...funcreturn[i]);
 	        for (var j=0; j<= funcreturn[i].length-1; j++){
 	            bagitems_labels.push(i);
 	        }
 	    } else {
 	        console.error(`Invalid data at funcreturn[${i}]:`, funcreturn[i]);
+	        console.error(`Detailed check - Exists: ${!!funcreturn[i]}, IsArray: ${Array.isArray(funcreturn[i])}`);
 	    }
 	}
 	return [bagitems_paths, bagitems_labels];
