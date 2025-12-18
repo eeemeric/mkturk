@@ -98,8 +98,10 @@ async function requestBLEDevice(){
     console.log('Requesting ble device...')
     writeTextonBlankCanvas('Requesting bluetooth device list',25.5,20.5)
     // let options = {filters: [ {name: ble.name}, {services:[ ble.customserviceUUID ]} ]}
-    let options = {filters: [ {namePrefix: ble.namePrefix}, {services:[ ble.customserviceUUID ]} ]}
-
+    // let options = {filters: [ {namePrefix: ble.namePrefix}, {services:[ ble.customserviceUUID ]} ]}
+    
+    // Temporary (shows all devices):
+    let options = {acceptAllDevices: true, optionalServices: [ble.customserviceUUID]}
     try{
       device = await navigator.bluetooth.requestDevice(options)
         console.log("found a device",device)
