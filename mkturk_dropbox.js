@@ -40,18 +40,31 @@ async function getMostRecentBehavioralFilePathsFromDropbox(num_files_to_get, sub
 }
 
 async function loadImageBagPathsParallel(imagebagroot_s){
-	var imagepath_promises = imagebagroot_s.map(loadImageBagPaths); //create array of recursive path load Promises
+	var imagepath_promises = imagebagroot_s.map(loadImageBagPaths);
 	var funcreturn = await Promise.all(imagepath_promises);
-	//Assemble images and add labels
-	var bagitems_paths = [] // Can also be paths to a single .png file. 
-	var bagitems_labels = [] // The labels are integers that index elements of imagebagroot_s. So, a label of '0' means the image belongs to the first imagebag.
+	
+	// Debug logging
+	console.log("funcreturn:", funcreturn);
+	console.log("funcreturn length:", funcreturn.length);
+	
+	var bagitems_paths = [];
+	var bagitems_labels = [];
+	
 	for (var i=0; i<=funcreturn.length-1; i++){
-		bagitems_paths.push(... funcreturn[i][0])
-		for (var j=0; j<= funcreturn[i][0].length-1; j++){
-			bagitems_labels.push(i)
+		console.log(`funcreturn[${i}]:`, funcreturn[i]);
+		console.log(`funcreturn[${i}][0]:`, funcreturn[i][0]);
+		
+		// Add safety check
+		if (funcreturn[i] && funcreturn[i][0] && Array.isArray(funcreturn[i][0])) {
+			bagitems_paths.push(...funcreturn[i][0]);
+			for (var j=0; j<= funcreturn[i][0].length-1; j++){
+				bagitems_labels.push(i);
+			}
+		} else {
+			console.error(`Invalid data at funcreturn[${i}]:`, funcreturn[i]);
 		}
-	} //for i labels
-	return [bagitems_paths, bagitems_labels] 
+	}
+	return [bagitems_paths, bagitems_labels];
 }
 
 
