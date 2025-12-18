@@ -75,13 +75,17 @@ function skipBLEDevice(event){
 }
 
 async function findBLEDevice(event){
+  console.log('=== findBLEDevice() STARTED ===');
   event.preventDefault();
   try{
+    console.log('About to call requestBLEDevice()');
     await requestBLEDevice()
+    console.log('requestBLEDevice() completed, now calling connectBLEDeviceAndCacheCharacteristics()');
     await connectBLEDeviceAndCacheCharacteristics()
     waitforClick.next(1)    
   }
   catch(error){
+    console.log('=== CAUGHT ERROR IN findBLEDevice ===');
     // Add detailed error logging here too
     console.log('findBLEDevice error:', error);
     console.log('findBLEDevice error name:', error.name);
