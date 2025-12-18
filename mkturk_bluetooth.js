@@ -121,9 +121,7 @@ async function requestBLEDevice(){
   let result = Promise.resolve()
   if (ble.connected == false){
     console.log('Requesting ble device...')
-    // writeTextonBlankCanvas('Requesting bluetooth device list',25.5,20.5)
-    // let options = {filters: [ {name: ble.name}, {services:[ ble.customserviceUUID ]} ]}
-    // let options = {filters: [ {namePrefix: ble.namePrefix}, {services:[ ble.customserviceUUID ]} ]}
+    console.log('Requesting bluetooth device list')  // Replace writeTextonBlankCanvas with this
     
     // Temporary (shows all devices):
     let options = {acceptAllDevices: true, optionalServices: [ble.customserviceUUID]}
