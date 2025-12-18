@@ -270,6 +270,11 @@ async function loadBagfromDropbox(imagebags_parameter){
 
 
 async function loadImageArrayfromDropbox(imagepathlist){
+	// In loadImageArrayfromDropbox, add logging to see what paths are passed:
+	console.log("loadImageArrayfromDropbox called with paths:", imagepath_s);
+	imagepath_s.forEach((path, index) => {
+	    console.log(`Path ${index}:`, path, "Type:", typeof path);
+	});
 	try{
 		var MAX_SIMULTANEOUS_REQUESTS = 500 // Empirically chosen based on our guess of Dropbox API's download request limit in a "short" amount of time.
 		var MAX_TOTAL_REQUESTS = 3000 // Empirically chosen
@@ -343,7 +348,12 @@ async function loadImageArrayfromDropbox(imagepathlist){
 async function loadImagefromDropbox(imagepath){
 	// Loads and returns a single image located at imagepath into an Image()
 	// Upon failure (e.g. from Dropbox API limit), will retry up to MAX_RETRIES. 
-	// Will wait between retries with linear increase in waittime between tries. 
+	// Will wait between retries with linear increase in waittime between tries.
+	// In loadImagefromDropbox function, add this at the beginning:
+	console.log("Attempting to download image from path:", imagepath);
+	console.log("Path type:", typeof imagepath);
+	console.log("Path length:", imagepath ? imagepath.length : "undefined");
+	
 	return new Promise(
 		function(resolve, reject){
 			try{
