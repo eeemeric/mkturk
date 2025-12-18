@@ -75,13 +75,18 @@ function skipBLEDevice(event){
 }
 
 async function findBLEDevice(event){
-  event.preventDefault(); //prevents additional downstream call of click listener
+  event.preventDefault();
   try{
     await requestBLEDevice()
     await connectBLEDeviceAndCacheCharacteristics()
-      waitforClick.next(1)    
+    waitforClick.next(1)    
   }
   catch(error){
+    // Add detailed error logging here too
+    console.log('findBLEDevice error:', error);
+    console.log('findBLEDevice error name:', error.name);
+    console.log('findBLEDevice error message:', error.message);
+    
     if (ble.connected == false){
       var textstr = 'Error getting ble device/service/characteristic';
       console.log(textstr)
