@@ -277,8 +277,8 @@ async function loadBagfromDropbox(imagebags_parameter){
 
 async function loadImageArrayfromDropbox(imagepathlist){
 	// In loadImageArrayfromDropbox, add logging to see what paths are passed:
-	console.log("loadImageArrayfromDropbox called with paths:", imagepath_s);
-	imagepath_s.forEach((path, index) => {
+	console.log("loadImageArrayfromDropbox called with paths:", imagepathlist);
+	imagepathlist.forEach((path, index) => {
 	    console.log(`Path ${index}:`, path, "Type:", typeof path);
 	});
 	try{
