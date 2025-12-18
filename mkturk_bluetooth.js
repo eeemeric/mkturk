@@ -134,6 +134,14 @@ async function requestBLEDevice(){
         console.log("found a device",device)
         console.log(device.name)
         console.log(device.uuids)
+        console.log('Attempting to connect to GATT server...');
+        const server = await device.gatt.connect();
+        console.log('Connected! Getting services...');
+        const services = await server.getPrimaryServices();
+        console.log('Available services:', services);
+        services.forEach(service => {
+        console.log('Service UUID:', service.uuid);
+  
         var textstr = "found a device name: " + device.name + "<br>" + "id: " + device.id
         ble.statustext = textstr
         updateStatusText()
