@@ -51,17 +51,18 @@ async function loadImageBagPathsParallel(imagebagroot_s){
 	var bagitems_labels = [];
 	
 	for (var i=0; i<=funcreturn.length-1; i++){
-		console.log(`funcreturn[${i}]:`, funcreturn[i]);
-		console.log(`funcreturn[${i}][0]:`, funcreturn[i][0]);
-		
-		if (funcreturn[i] && Array.isArray(funcreturn[i])) {
-		    bagitems_paths.push(...funcreturn[i]);  // Use funcreturn[i] directly
-		    for (var j=0; j<= funcreturn[i].length-1; j++){
-		        bagitems_labels.push(i);
-		    }
-		} else {
-		    console.error(`Invalid data at funcreturn[${i}]:`, funcreturn[i]);
-		}
+	    console.log(`funcreturn[${i}]:`, funcreturn[i]);
+	    console.log(`funcreturn[${i}][0]:`, funcreturn[i][0]);
+	    
+	    // This should be the updated version:
+	    if (funcreturn[i] && Array.isArray(funcreturn[i])) {
+	        bagitems_paths.push(...funcreturn[i]);  // Use funcreturn[i] directly
+	        for (var j=0; j<= funcreturn[i].length-1; j++){
+	            bagitems_labels.push(i);
+	        }
+	    } else {
+	        console.error(`Invalid data at funcreturn[${i}]:`, funcreturn[i]);
+	    }
 	}
 	return [bagitems_paths, bagitems_labels];
 }
