@@ -103,7 +103,7 @@ async function findBLEDevice(event){
 // Step 1: Manually select device -- returns a promise
 async function requestBLEDevice(){
   console.log('=== requestBLEDevice() called ===');
-  
+  console.log('=== requestBLEDevice() STARTED ===');
   // Check if Web Bluetooth is available
   if (!navigator.bluetooth) {
     console.log('Web Bluetooth API not supported in this browser');
